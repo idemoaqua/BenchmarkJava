@@ -40,7 +40,7 @@ public class BenchmarkTest01241 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        String param = request.getParameter("BenchmarkTest01241");
+        String param = "somevalue";
         if (param == null) param = "";
 
         String bar = new Test().doSomething(request, param);
