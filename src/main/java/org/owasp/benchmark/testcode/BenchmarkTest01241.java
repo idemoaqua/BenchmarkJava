@@ -34,13 +34,18 @@ public class BenchmarkTest01241 extends HttpServlet {
             throws ServletException, IOException {
         doPost(request, response);
     }
-
+    // Helper method to sanitize user input
+    private String sanitizeInput(String input) {
+        // Use a regular expression to allow only safe characters (e.g., alphanumeric and some symbols)
+        return input.replaceAll("[^a-zA-Z0-9]", "");
+    }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         String param = "somevalue";
+        sanitizeInput(param);        
         if (param == null) param = "";
 
         String bar = new Test().doSomething(request, param);
